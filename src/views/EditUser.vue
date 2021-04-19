@@ -1,68 +1,83 @@
 <template>
-    <div class="container">
-        <TitlePage title="Connexion"/>
-        <div class="alert alert-danger" role="alert" v-if="messageError">
-            {{ messageError }} 
-        </div>
+    <div>
+        <TitlePage title="Modification de profil"/>
         <div class="form">
-            <!-- Autre méthode:  -->
-            <!-- <form @submit.prevent="login"> -->
             <form>
                 <div class="form__group">
-                    <input type="text" v-model="email" id="" class="form_input" placeholder="Adresse mail"> <br>
+                    <input type="text" v-model="firstName" id="" class="form_input" placeholder="Prénom" > <br>
                 </div>
                 <div class="form__group">
-                    <input type="password" v-model="password" id="" class="form_input" placeholder="Mot de passe"> <br>
+                    <input type="text" v-model="lastName" id="" class="form_input" placeholder="Nom"> <br>
                 </div>
                 <div class="form__group">
-                    <button type="submit" class="btn" @click.prevent="loginBtn">Se connecter</button>
+                    <button type="submit" class="btn" @click="edit">Enregistrer les modifications</button>
                 </div>
             </form>
+            <p v-if="messageError">{{ messageError }} </p>
         </div>
     </div>
 </template>
 
 <script>
-    import TitlePage from '../components/TitlePage'
+    import TitlePage from "../components/TitlePage";
     import ApiUsers from '../mixins/ApiUsers';
+    
     export default {
         components: {
             TitlePage
         },
         data: function() {
             return {
-                email: "",
-                password: "",
+                firstName:"",
+                lastName: "",
+                phone: "",
+                address: {},
                 userToken: "",
                 messageError: ""
             }
         },
         mixins:[ApiUsers],
         methods: {
-            loginBtn: function(event) {
+            edit: function(event) {
                 event.preventDefault(); // empêche le rechargement de la page
-                this.login()
+                this.editUser()
                 .then((data) => {
-                    if(!data.auth) {
-                        this.messageError = data.message;
-                    }
+                    if(data.error) {
+                        console.log(data.error);
+                        this.messageError = data.error;
+                    } 
                     else {
-                        let token = data.token;
-                        localStorage.setItem('token',token);
                         this.$router.push('/account');
-                        window.location.reload();
                     }
                 })
                 .catch(err => console.log(err));
             }
-        }
+        },
+        created() {
+            const token = localStorage.getItem('token');
+            if(token) {
+                this.getUser()
+                .then(data=>{
+                    this.isLogged = true;
+                    this.firstName = data.firstName;
+                    this.lastName = data.lastName;
+                    this.phone = data.phone;
+                    this.address.zip = data.address.zip;
+                    this.address.street = data.address.street;
+                    this.address.city = data.address.city;
+                    this.address.country = data.address.country;
+            })
+            .catch((err) => console.log(err));
+            }
+            
+        },
     }
 </script>
 
 <style lang="scss" scoped>
     .form {
         .form_input {
-            width: 25em;
+            width: 40%;
             height: calc(1.5em + .75rem + 2px);
             padding: .375rem .75rem;
             font-size: 1rem;
@@ -74,9 +89,6 @@
             border: 1px solid #ced4da;
             border-radius: .25rem;
             margin-bottom: 1rem;
-            @media (max-width: 560px) {
-                width: 18em;
-            }
         }
         .btn {
             display: inline-block;
