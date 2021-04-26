@@ -5,7 +5,7 @@ import User from '../views/User.vue'
 import EditUser from '../views/EditUser'
 import Dashboard from '../views/Dashboard'
 import Offers from '../views/Offers'
-
+import Product from '../views/Product'
 Vue.use(VueRouter)
 
 const routes = [
@@ -74,6 +74,21 @@ const routes = [
       }
     }
   },
+  {
+    path: '/product',
+    name: 'Product',
+    component: Product,
+    beforeEnter(to, from, next){
+      if (!localStorage.getItem('token')) {
+         next({
+          name:"Login"
+        })
+      }
+      else {
+        next();
+      }
+    }
+  }
 ]
 
 const router = new VueRouter({
