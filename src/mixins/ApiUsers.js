@@ -98,5 +98,14 @@ export default {
             })
             .then (res => res.json())
         },
+        calculUsers() {
+            const token = localStorage.getItem('token');
+            return fetch(`${apiConfigs.apiUrl}/calculUsers`, {
+                headers: {
+                    Authorization: token
+                }
+            })
+            .then(res=>res.json())
+        }
     }
 } 

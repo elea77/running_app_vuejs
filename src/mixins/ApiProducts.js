@@ -6,6 +6,24 @@ export default {
             console.log(apiConfigs.apiUrl);
             return fetch(`${apiConfigs.apiUrl}/products`)
             .then(res=>res.json())
+        },
+        calculProducts() {
+            const token = localStorage.getItem('token');
+            return fetch(`${apiConfigs.apiUrl}/calculProducts`, {
+                headers: {
+                    Authorization: token
+                }
+            })
+            .then(res=>res.json())
+        },
+        calculSales() {
+            const token = localStorage.getItem('token');
+            return fetch(`${apiConfigs.apiUrl}/calculSales`, {
+                headers: {
+                    Authorization: token
+                }
+            })
+            .then(res=>res.json())
         }
     }
 }
