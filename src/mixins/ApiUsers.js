@@ -77,17 +77,6 @@ export default {
             })
             .then (res => res.json())
         },
-        login() {
-            return fetch(`${apiConfigs.apiUrl}/login`, {
-                method: "POST",
-                headers: {"Content-Type":"Application/json"},
-                body: JSON.stringify( {
-                    email: this.email,
-                    password: this.password
-                })
-            })
-            .then (res => res.json())
-        },
         createAdmin() {
             return fetch(`${apiConfigs.apiUrl}/users`, {
                 method: "POST",

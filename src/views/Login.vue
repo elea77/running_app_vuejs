@@ -23,8 +23,9 @@
 </template>
 
 <script>
-    import TitlePage from '../components/TitlePage'
+    import TitlePage from '../components/TitlePage';
     import ApiUsers from '../mixins/ApiUsers';
+    import apiConfigs from '../configs/api.configs';
     export default {
         components: {
             TitlePage
@@ -41,7 +42,15 @@
         methods: {
             loginBtn: function(event) {
                 event.preventDefault(); // empêche le rechargement de la page
-                this.login()
+                return fetch(`${apiConfigs.apiUrl}/login`, {
+                    method: "POST",
+                    headers: {"Content-Type":"Application/json"},
+                    body: JSON.stringify( {
+                        email: this.email,
+                        password: this.password
+                    })
+                })
+                .then (res => res.json())
                 .then((data) => {
                     if(!data.auth) {
                         this.messageError = data.message;
