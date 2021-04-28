@@ -12,7 +12,16 @@ const routes = [
   {
     path: '/',
     name: 'Login',
-    component: Login
+    component: Login,
+    beforeEnter(to, from, next){
+      if(localStorage.getItem('token')){
+        next({
+          name: "User"
+        })
+      }else{
+        next();
+      }
+    }
   },
   {
     path: '/account',
