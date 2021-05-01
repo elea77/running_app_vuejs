@@ -26,6 +26,7 @@
     import TitlePage from '../components/TitlePage';
     import ApiUsers from '../mixins/ApiUsers';
     import apiConfigs from '../configs/api.configs';
+    import VueJwtDecode from "vue-jwt-decode";
     export default {
         components: {
             TitlePage
@@ -55,11 +56,17 @@
                     if(!data.auth) {
                         this.messageError = data.message;
                     }
-                    else {
+                    else{
                         let token = data.token;
-                        localStorage.setItem('token',token);
-                        this.$router.push('/account');
-                        window.location.reload();
+                        let decodedToken = VueJwtDecode.decode(token);
+                        if(decodedToken.isAdmin == false){
+                            this.messageError = "Vous n'êtes pas Administrateur ! Vous ne pouvez donc pas accéder au dashboard";
+                        }
+                        else {
+                            localStorage.setItem('token',token);
+                            this.$router.push('/account');
+                            window.location.reload();
+                        }
                     }
                 })
                 .catch(err => console.log(err));
