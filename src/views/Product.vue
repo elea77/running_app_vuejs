@@ -22,6 +22,8 @@
 
 <script>
     import TitlePage from "../components/TitlePage";
+    import ApiProducts from '../mixins/ApiProducts';
+
     export default {
         name:"Product",
         components:{
@@ -32,14 +34,13 @@
                 productItem:{}
             }
         },
-        created() {
-            fetch(`http://localhost:3030/api/v1/products/${this.$route.params.id}`)
-            .then(res=>res.json())
-            .then((data)=>{
-                console.log(data);
-                this.productItem = data;
-            })
-            .catch(err=> console.log(err));
+        mixins:[ApiProducts],
+       created() {
+            this.getOneProducts()
+                .then((data) => {
+                    this.productItem = data;
+                })
+                .catch((err) => console.log(err));
         },
          methods:{
             

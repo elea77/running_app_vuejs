@@ -7,6 +7,12 @@ export default {
             return fetch(`${apiConfigs.apiUrl}/products`)
             .then(res=>res.json())
         },
+        getOneProducts() {
+            console.log(apiConfigs.apiUrl);
+            return fetch(`${apiConfigs.apiUrl}/products/${this.$route.params.id}`)
+            .then(res=>res.json())
+        },
+
         calculProducts() {
             const token = localStorage.getItem('token');
             return fetch(`${apiConfigs.apiUrl}/calculProducts`, {
