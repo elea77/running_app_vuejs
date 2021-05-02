@@ -21,6 +21,11 @@
                 </ul>
                 <ul class="nav">
                     <li>
+                        <router-link to="/Users">Utilisateurs</router-link>
+                    </li>
+                </ul>
+                <ul class="nav">
+                    <li>
                         <router-link to="/account">Mon compte</router-link>
                     </li>
                 </ul>
