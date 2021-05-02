@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container">
+    <div class="main-panel">
         <div class="user__card">
             <h2> Utilisateurs</h2>  
             {{usersNumber}} 

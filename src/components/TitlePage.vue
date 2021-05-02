@@ -17,7 +17,7 @@ export default {
 
 <style lang="scss" scoped>
     .title__page {
-        margin: 40px 0px;
+        margin: 50px 0px;
         h1 {
             font-size: 30px;
             letter-spacing: 2px;

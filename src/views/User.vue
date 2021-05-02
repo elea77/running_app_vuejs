@@ -1,9 +1,9 @@
 <template>
-    <div class="container mb-5">
+    <div class="main-panel">
         <TitlePage title="Mon compte"/>
         <div>
-            <div class="user__account row" v-if="user">
-                <div class="col-lg-6 col-md-6 col-xs-12 col-sm-12 mb-5">
+            <div v-if="user">
+                <div>
                     <h4>Mes informations personnelles</h4><br>
                     <p>Nom : <b>{{user.firstName}}</b></p>
                     <p>Prénom : <b>{{user.lastName}}</b></p>

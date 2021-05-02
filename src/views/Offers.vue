@@ -1,5 +1,5 @@
 <template>
-  <div class="page__shop">
+  <div class="main-panel">
     <ProductsGrid :productsArray="productsFromApi"/>    
   </div>
 </template>

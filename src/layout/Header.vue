@@ -1,55 +1,42 @@
 <template>
-    <header class="header__main" v-if="user.firstName">
-        <div class="header__logo">
-            <img src="../assets/logo.png" alt="logo">
-        </div>
-        <div class="nav-list-container">
-            <nav class="header__nav">
-                <ul class="nav__list">
-                    <li class="nav__item">
+    <div class="wrapper" v-if="user.firstName">
+        <link rel="stylesheet" href="https://cdn.rawgit.com/creativetimofficial/material-dashboard/31144b3f/assets/css/material-dashboard.css">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
+        <div class="sidebar" data-color="purple" data-background-color="white">
+            <div class="logo">
+                <img src="../assets/logo.png" alt="logo">
+            </div>
+             <div class="sidebar-wrapper">
+                <ul class="nav">
+                    <li class="nav-item active  ">
+                        <a class="nav-link">
+                            <p>Dashboard</p>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="nav">
+                    <li>
                         <router-link to="/offers">Offres</router-link>
                     </li>
-                    <li class="nav__item">
+                </ul>
+                <ul class="nav">
+                    <li>
                         <router-link to="/account">Mon compte</router-link>
                     </li>
-                    <li class="nav__item">
-                        <router-link to="/dashboard">Dashboard</router-link> 
+                </ul>
+                <ul class="nav">
+                    <li>
+                        <router-link to="/dashboard">Dashboard</router-link>
                     </li>
-                    <li class="nav__item">
+                </ul>
+                <ul class="nav" id="bottom">
+                    <li>
                         <button @click="logout">Se déconnecter</button>
                     </li>
                 </ul>
-            </nav>
+            </div>
         </div>
-
-        <div class="responsive__menu">
-            <input id="burger" type="checkbox" />
-
-            <label for="burger">
-                <span></span>
-                <span></span>
-                <span></span>
-            </label>
-
-            <nav>    
-                <ul>
-                    <li>
-                        <router-link to="/shop">Mes ventes</router-link>
-                    </li>
-                    <li>
-                        <router-link to="/account">Mon compte</router-link>
-                    </li>
-                    <li>
-                        <button>Se déconnecter</button>
-                    </li>
-                    <li>
-                        <router-link to="/backoffice">Backoffice</router-link> 
-                    </li>
-                </ul>  
-            </nav>
-        </div>
-        
-    </header>
+    </div>
 </template>
 
 <script>
@@ -85,177 +72,21 @@
 
 
 <style lang="scss" scoped>
-    .header__main {
-        display: flex;
-        align-items: center;
-        justify-content: space-around;
-        background-color: #242424;
-        height: 70px;
-        @media (max-width: 1000px) {
-            align-items: unset;
-            justify-content: unset;
-            background-color: none;
-        }
-        .header__logo {
-            @media (max-width: 1000px) {
-                display: none;
-            }
-            h1 {
-                color: white;
-            }
-            img {
-                height: auto;
-                width: 4em;
-            }
-        }
-        .nav-list-container {
-            @media (max-width: 1000px) {
-                display: none;
-            }
-            .header__nav {
-                .nav__list {
-                    display: flex;
-                    list-style: none;
-                    margin: 0;
-                    height: 100%;
-                    .nav__item {
-                        color: white;
-                        &:hover{
-                            color: #ffffff;
-                            border-bottom: 4px solid #fff;
-                            transition: all 0.2s ease-out;
-                        }
-                        a, button {
-                            color: white;
-                            padding: 0px 25px;
-                            height: 100%;
-                            display: flex;
-                            justify-content: center;
-                            align-items: center;
-                            text-decoration: none;
-                            font-size: 1.2em;
-                        }
-                        button {
-                            background: transparent;
-                            border: none !important;
-                        }
-                    }
-                }
-            }
-        }
-        
+    img {
+        height: auto;
+        width: 4em;
     }
-    .responsive__menu {
-        display: none;
-        @media (max-width: 1000px) {
-            display: block;
-        }
-        h1 {
-            position: fixed;
-            top: 40px;
-            left: 40px;
-            z-index: 6;
-            font-size: 20px;
-            font-weight: 900;
-            font-family: sans-serif;
-            text-transform: uppercase;
-            > span {
-                text-transform: none;
-                opacity: .5;
-                font-weight: 300;
-                font-size: 12px;
-            }
-        }
-        input + label {
-            position: fixed;
-            top: 40px;
-            right: 40px;
-            height: 20px;
-            width: 15px; 
-            z-index: 5;
-            span {
-                position: absolute;
-                width: 100%;
-                height: 2px;
-                top: 50%;
-                margin-top: -1px;
-                left: 0;
-                display: block;
-                background: black;
-                transition: .5s;
-            }
-            span:first-child {
-                top: 3px; 
-            }
-            span:last-child {
-                top: 16px; 
-            }      
-        }
-        label:hover {
-            cursor: pointer;
-        }
-        input:checked + label { 
-            span {
-                opacity: 0;
-                top: 50%;
-            }
-            span:first-child {
-                opacity: 1;
-                transform: rotate(405deg);
-            }
-            span:last-child {
-                opacity: 1;
-                transform: rotate(-405deg);
-            }
-        }
-        input ~ nav {
-            background: white;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100px;
-            z-index: 3;
-            transition: .5s;
-            transition-delay: .5s;
-            overflow-x: auto;
-            // overflow: hidden;
-            > ul {
-                text-align: center;
-                position: relative;
-                top: 50%;
-                transform: translateY(-50%);
-                padding-left: 0;
-                list-style: none;
-                > li {
-                    opacity: 0;
-                    transition: .5s;
-                    transition-delay: 0s;
-                    > a, > button {
-                        text-decoration: none;
-                        text-transform: uppercase;
-                        color: black;
-                        font-weight: 700;
-                        font-family: sans-serif;
-                        display: block;
-                        padding: 30px;
-                        background: transparent;
-                        border: none !important;
-                        margin: auto;
-                    }
-                }
-            }
-        }
-        input:checked ~ nav { 
-            height: 100%;
-            transition-delay: 0s;
-            > ul {
-                > li {
-                opacity: 1;
-                transition-delay: .5s;
-                }
-            }
-        } 
+
+    .wrapper{
+        height: auto;
+    }
+
+    #bottom{
+        margin-top: 150%;
+    }
+
+    .nav button {
+        cursor: pointer;
     }
     
 </style>

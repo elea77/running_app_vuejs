@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="main-panel">
         <TitlePage title="Modification de profil"/>
         <div class="form">
             <form>

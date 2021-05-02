@@ -1,6 +1,6 @@
 
 <template>
-    <div class="product__page">
+    <div class="main-panel">
         <div class="product__form" v-if="productItem">
             <TitlePage :title="productItem.title"/>
 
