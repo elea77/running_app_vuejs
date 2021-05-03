@@ -36,13 +36,7 @@ export default {
                     body: JSON.stringify( {
                         firstName: this.firstName,
                         lastName: this.lastName,
-                        phone: this.phone,
-                        address: {
-                            zip: this.address.zip,
-                            street: this.address.street,
-                            city: this.address.city,
-                            country: this.address.country,
-                        }
+                        phone: this.phone
                     })
                 })
                 .then (res => res.json())
@@ -66,13 +60,7 @@ export default {
                     email: this.email,
                     password: this.password,
                     isAdmin: false,
-                    phone: this.phone,
-                    address: {
-                        zip: this.address.zip,
-                        street: this.address.street,
-                        city: this.address.city,
-                        country: this.address.country,
-                    }
+                    phone: this.phone
                 })
             })
             .then (res => res.json())
@@ -87,13 +75,8 @@ export default {
                     email: this.email,
                     password: this.password,
                     isAdmin: true,
-                    phone: this.phone,
-                    address: {
-                        zip: this.address.zip,
-                        street: this.address.street,
-                        city: this.address.city,
-                        country: this.address.country,
-                    }
+                    phone: this.phone
+                    
                 })
             })
             .then (res => res.json())

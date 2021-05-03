@@ -10,6 +10,9 @@
                     <input type="text" v-model="lastName" id="" class="form_input" placeholder="Nom"> <br>
                 </div>
                 <div class="form__group">
+                    <input type="text" v-model="phone" id="" class="form_input" placeholder="phone"> <br>
+                </div>
+                <div class="form__group">
                     <button type="submit" class="btn" @click="edit">Enregistrer les modifications</button>
                 </div>
             </form>
@@ -31,8 +34,6 @@
                 firstName:"",
                 lastName: "",
                 phone: "",
-                address: {},
-                userToken: "",
                 messageError: ""
             }
         },
@@ -47,28 +48,23 @@
                         this.messageError = data.error;
                     } 
                     else {
-                        this.$router.push('/account');
+                        this.$router.push('/users');
                     }
                 })
                 .catch(err => console.log(err));
             }
         },
         created() {
-            const token = localStorage.getItem('token');
-            if(token) {
-                this.getUser()
-                .then(data=>{
-                    this.isLogged = true;
-                    this.firstName = data.firstName;
-                    this.lastName = data.lastName;
-                    this.phone = data.phone;
-                    this.address.zip = data.address.zip;
-                    this.address.street = data.address.street;
-                    this.address.city = data.address.city;
-                    this.address.country = data.address.country;
+    
+            this.getUser()
+            .then(data=>{
+                this.firstName = data.firstName;
+                this.lastName = data.lastName;
+                this.phone = data.phone;
+                    
             })
             .catch((err) => console.log(err));
-            }
+            
             
         },
     }

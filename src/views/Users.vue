@@ -1,7 +1,7 @@
 <template>
   <div class="container">
     <TitlePage title="Liste utilisateurs" />
-    <router-link to="/backoffice/add/admin">
+    <router-link to="/AddAdmin">
       <button class="btn btn-primary mb-2">Ajouter un Administrateur</button>
     </router-link>
     <table class="table">
@@ -26,6 +26,9 @@
                       <button @click="del(user._id)" class="no-btn">
                         <span class="iconify" data-inline="false" data-icon="fluent:delete-dismiss-28-filled" style="font-size: 28px; color: #CA1C46; "></span>
                       </button>
+                      <router-link :to="{name:'EditUser',params:{id:user._id}}">
+                        Modifier
+                      </router-link>
                     </td>                   
                 </tr>
             </tbody>
@@ -72,12 +75,12 @@
 <style lang="scss" scoped>
 
 .container{
-    margin-top: 30px;
-    margin-right: 80px;
+  margin-top: 30px;
+  margin-right: 80px;
 }
-  .no-btn {
-    background: transparent;
-    border: none !important;
-    font-size:0;
-  }
+.no-btn {
+  background: transparent;
+  border: none !important;
+  font-size:0;
+ }
 </style>

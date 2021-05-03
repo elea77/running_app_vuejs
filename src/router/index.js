@@ -8,6 +8,7 @@ import Offers from '../views/Offers'
 import Product from '../views/Product'
 import EditProduct from '../views/EditProduct'
 import Users from '../views/Users'
+import AddAdmin from '../views/AddAdmin'
 Vue.use(VueRouter)
 
 const routes = [
@@ -116,6 +117,21 @@ const routes = [
     path: '/users',
     name: 'Users',
     component: Users,
+    beforeEnter(to, from, next){
+      if (!localStorage.getItem('token')) {
+         next({
+          name:"Login"
+        })
+      }
+      else {
+        next();
+      }
+    }
+  },
+  {
+    path: '/addAdmin',
+    name: 'AddAdmin',
+    component: AddAdmin,
     beforeEnter(to, from, next){
       if (!localStorage.getItem('token')) {
          next({
