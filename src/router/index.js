@@ -6,7 +6,7 @@ import EditUser from '../views/EditUser'
 import EditOtherUser from '../views/EditOtherUser'
 import Dashboard from '../views/Dashboard'
 import Offers from '../views/Offers'
-import Product from '../views/Product'
+import History from '../views/History'
 import EditProduct from '../views/EditProduct'
 import Users from '../views/Users'
 import AddAdmin from '../views/AddAdmin'
@@ -100,9 +100,9 @@ const routes = [
     }
   },
   {
-    path: '/product',
-    name: 'Product',
-    component: Product,
+    path: '/history/:id',
+    name: 'History',
+    component: History,
     beforeEnter(to, from, next){
       if (!localStorage.getItem('token')) {
          next({
@@ -115,7 +115,7 @@ const routes = [
     }
   },
   {
-    path: '/editProduct',
+    path: '/product/edit/:id',
     name: 'EditProduct',
     component: EditProduct,
     beforeEnter(to, from, next){

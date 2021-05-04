@@ -3,19 +3,31 @@
 
       <div class="container">
           <TitlePage title="Dashboard"/>
-          <div class="user__card">
-              <h2> Utilisateurs</h2>  
-              {{usersNumber}} 
-          </div>
 
-          <div class="product__card">
-              <h2> Produits </h2>
-              {{productsNumber}}
-          </div>
+          <div class="row">
 
-          <div class="sales__card">
-              <h2> Produits Vendus </h2>
-              {{productsSales}}
+            <div class="col">
+              <div class="dash__card">
+                  <h2> Utilisateurs</h2>  
+                  <p>{{usersNumber}}</p>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="dash__card">
+                  <h2> Produits En vente</h2>
+                  <p>{{productsNumber}}</p>
+              </div>
+            </div>
+            
+            <div class="col">
+              <div class="dash__card">
+                  <h2> Produits Vendus </h2>
+                  <p>{{productsSales}}</p>
+              </div>
+            </div>
+          
+            
           </div>
       </div>
 
@@ -72,37 +84,23 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.user__card{
-  height: 110px;
-  width: 250px;
+.dash__card{
+  min-height: 100px;
   border-radius: 8px;
   background-color: #9c27b0;
   color: #ffffff;
   margin-top: 20px;
   margin-left: auto;
   margin-right: auto;
+
+  h2 {
+    font-size: 1.8em;
+  }
+  p {
+    font-size: 2em;
+    padding-top: 5px;
+  }
 }
 
-.product__card{
-  height: 110px;
-  width: 250px;
-  border-radius: 8px;
-  background-color: #9c27b0;
-  color: #ffffff;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.sales__card{
-  height: auto;
-  width: 250px;
-  border-radius: 8px;
-  background-color: #9c27b0;
-  color: #ffffff;
-  margin-top: 20px;
-  margin-left: auto;
-  margin-right: auto;
-}
 
 </style>

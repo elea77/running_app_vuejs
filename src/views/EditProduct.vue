@@ -1,5 +1,7 @@
 <template>
+    <div class="main-panel">
     <div class="container">
+
         <TitlePage title="Modifier un produit"/>
         <div class="form">
             <form>
@@ -24,6 +26,7 @@
             </form>
             <p v-if="messageError">{{ messageError }} </p>
         </div>
+    </div>
     </div>
 </template>
 
@@ -76,8 +79,6 @@
 </script>
 
 <style lang="scss" scoped>
-.container{
-    margin-right: 50px;
-}
+
 
 </style>
