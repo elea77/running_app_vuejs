@@ -41,6 +41,33 @@ export default {
                 })
                 .then (res => res.json())
         },
+        editOtherUser() {
+            const token = localStorage.getItem('token');
+            const decodedToken = VueJwtDecode.decode(token);
+            return fetch(`${apiConfigs.apiUrl}/users/${this.$route.params.id}`, {
+                method: "PUT",
+                headers: {
+                    Authorization: token,
+                    "Content-Type":"Application/json"
+                },
+                body: JSON.stringify( {
+                    firstName: this.firstName,
+                    lastName: this.lastName,
+                    phone: this.phone
+                })
+            })
+            .then (res => res.json())
+        },
+        getOtherUser() {
+            const token = localStorage.getItem('token');
+            const decodedToken = VueJwtDecode.decode(token);
+            return fetch(`${apiConfigs.apiUrl}/users/${this.$route.params.id}`, {
+                headers: {
+                    Authorization: token
+                }
+            })
+            .then(res=>res.json())
+        },
         deleteUser(id) {
             const token = localStorage.getItem('token');
             return fetch(`${apiConfigs.apiUrl}/users/${id}`, {

@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Login from '../views/Login.vue'
 import User from '../views/User.vue'
 import EditUser from '../views/EditUser'
+import EditOtherUser from '../views/EditOtherUser'
 import Dashboard from '../views/Dashboard'
 import Offers from '../views/Offers'
 import Product from '../views/Product'
@@ -42,6 +43,21 @@ const routes = [
     path: '/edit_profile',
     name: 'EditUser',
     component: EditUser,
+    beforeEnter(to, from, next){
+      if (!localStorage.getItem('token')) {
+         next({
+          name:"Login"
+        })
+      }
+      else {
+        next();
+      }
+    }
+  },
+  {
+    path: '/user/edit/:id',
+    name: 'EditOtherUser',
+    component: EditOtherUser,
     beforeEnter(to, from, next){
       if (!localStorage.getItem('token')) {
          next({

@@ -23,7 +23,7 @@
                     <td>{{ user.phone }}</td>
                     <td>{{ user.isAdmin }}</td>
                     <td>
-                      <router-link :to="{name:'EditUser',params:{id:user._id}}">
+                      <router-link :to="{name:'EditOtherUser',params:{id:user._id}}">
                         <button class="btn btn-primary mb-2">
                         Modifier
                         </button>
