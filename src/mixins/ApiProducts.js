@@ -3,12 +3,16 @@ import apiConfigs from "../configs/api.configs";
 export default {
     methods: {
         getProducts() {
-            console.log(apiConfigs.apiUrl);
-            return fetch(`${apiConfigs.apiUrl}/products`)
+            const token = localStorage.getItem('token');
+            return fetch(`${apiConfigs.apiUrl}/allProducts`, {
+                headers: {
+                    Authorization: token,
+                    "Content-Type":"Application/json"
+                }
+            })
             .then(res=>res.json())
         },
         getOneProducts() {
-            console.log(apiConfigs.apiUrl);
             return fetch(`${apiConfigs.apiUrl}/products/${this.$route.params.id}`)
             .then(res=>res.json())
         },
@@ -48,6 +52,17 @@ export default {
                 }
             })
             .then(res=>res.json())
+        },
+        deleteProduct(id) {
+            const token = localStorage.getItem('token');
+            return fetch(`${apiConfigs.apiUrl}/products/${id}`, {
+                method: "DELETE",
+                headers: {
+                    Authorization: token,
+                    "Content-Type":"Application/json"
+                }
+            })
+            .then (res => res.json())
         }
     }
 }

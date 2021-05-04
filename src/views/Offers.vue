@@ -2,6 +2,16 @@
   <div class="main-panel">
     <div class="container">
       <TitlePage title="Liste des produits" />
+        <div class="form-group row">
+          <label for="staticEmail" class="col-sm-2 col-form-label">Fitre par statut :</label>
+          <div class="col-sm-10">
+          <select class="form-control" id="filterStatus" @change="filterRowsBySelect('filterStatus',6,0)">
+            <option value="">Tout</option>
+            <option value="En vente">En vente</option>
+            <option value="Vendu">Vendu</option>
+          </select>
+          </div>
+        </div>
         <table class="table">
           <thead class="thead-dark">
               <tr>
@@ -35,7 +45,9 @@
                   Modifier
                   </button>
                 </router-link>
-                
+                <button @click="del(product._id)" class="btn btn-primary mb-2">
+                  Supprimer
+                </button>
               </td> 
             </tr>
           </tbody>
@@ -75,6 +87,29 @@ export default {
       var item = document.getElementById("offers");
       item.classList.add("active");
   },
+  methods: {
+    filterRowsBySelect: function (element,column,table){
+      var filter = document.getElementById(element).value;
+      var tableau = document.querySelectorAll("tbody");
+      var rows = [].slice.call(tableau[table].querySelectorAll("tr"));
+
+      for(var i = 0; i < rows.length; i++){
+          var content = rows[i].cells[column].textContent || rows[i].innerText;
+          if(content.indexOf(filter) > -1){
+              rows[i].style.display = '';
+          }else{
+              rows[i].style.display = 'none';
+          }
+      }
+    },
+    del: function(id) {
+      this.deleteProduct(id)
+      .then(data => {
+        window.location.reload();
+      })
+      .catch((err) => console.log(err));
+    }
+  }
 };
 </script>
 
@@ -86,6 +121,9 @@ export default {
     
   }
 
+#filterStatus {
+  width: 20%;
+}
 
 
 </style>
