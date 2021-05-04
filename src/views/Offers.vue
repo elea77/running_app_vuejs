@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="main-panel">
     <TitlePage title="Liste des produits" />
       <table class="table">
         <thead class="thead-dark">
@@ -66,16 +66,18 @@ export default {
         this.productsFromApi = data;
       })
       .catch((err) => console.log(err));
+
+      var navItems = document.getElementsByClassName("nav-item");
+      navItems.forEach(element => {
+          element.classList.remove("active");
+      });
+      var item = document.getElementById("offers");
+      item.classList.add("active");
   },
 };
 </script>
 
 <style lang="scss" scoped>
-.container {
-  margin-right: 80px;
-  margin-top: 50px;
-}
-
 .no-btn {
     background: transparent;
     border: none !important;

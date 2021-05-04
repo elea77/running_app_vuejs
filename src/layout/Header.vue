@@ -7,31 +7,24 @@
                 <img src="../assets/logo.png" alt="logo">
             </div>
              <div class="sidebar-wrapper">
-                <ul class="nav">
-                    <li class="nav-item active  ">
-                        <a class="nav-link">
-                            <p>Dashboard</p>
-                        </a>
+                 <ul class="nav">
+                    <li class="nav-item active" id="dashboard">
+                        <router-link to="/dashboard">Dashboard</router-link>
                     </li>
                 </ul>
                 <ul class="nav">
-                    <li>
+                    <li class="nav-item" id="offers">
                         <router-link to="/offers">Offres</router-link>
                     </li>
                 </ul>
                 <ul class="nav">
-                    <li>
+                    <li class="nav-item" id="users">
                         <router-link to="/Users">Utilisateurs</router-link>
                     </li>
                 </ul>
                 <ul class="nav">
-                    <li>
+                    <li class="nav-item" id="account">
                         <router-link to="/account">Mon compte</router-link>
-                    </li>
-                </ul>
-                <ul class="nav">
-                    <li>
-                        <router-link to="/dashboard">Dashboard</router-link>
                     </li>
                 </ul>
                 <ul class="nav" id="bottom">

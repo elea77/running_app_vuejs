@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container">
+    <div class="main-panel">
         <TitlePage title="Dashboard"/>
         <div class="user__card">
             <h2> Utilisateurs</h2>  
@@ -55,6 +55,13 @@ export default {
         this.productsSales = data;
       })
       .catch((err) => console.log(err));
+
+      var navItems = document.getElementsByClassName("nav-item");
+      navItems.forEach(element => {
+          element.classList.remove("active");
+      });
+      var item = document.getElementById("dashboard");
+      item.classList.add("active");
   },
 
   
@@ -63,12 +70,6 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
-.container{
-  margin-top: 30px;
-  margin-right: 50px;
-}
-
 .user__card{
   height: 110px;
   width: 250px;
@@ -76,8 +77,8 @@ export default {
   background-color: #9c27b0;
   color: #ffffff;
   margin-top: 20px;
-  margin-left: 420px;
-
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .product__card{
@@ -87,7 +88,8 @@ export default {
   background-color: #9c27b0;
   color: #ffffff;
   margin-top: 20px;
-  margin-left: 420px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .sales__card{
@@ -97,7 +99,8 @@ export default {
   background-color: #9c27b0;
   color: #ffffff;
   margin-top: 20px;
-  margin-left: 420px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="main-panel">
     <TitlePage title="Liste utilisateurs" />
     <router-link to="/AddAdmin">
       <button class="btn btn-primary mb-2">Ajouter un Administrateur</button>
@@ -70,16 +70,18 @@
           this.usersFromApi = data;
         })
         .catch((err) => console.log(err));
+
+        var navItems = document.getElementsByClassName("nav-item");
+        navItems.forEach(element => {
+            element.classList.remove("active");
+        });
+        var item = document.getElementById("users");
+        item.classList.add("active");
     },
   };
 </script>
 
 <style lang="scss" scoped>
-
-.container{
-  margin-top: 30px;
-  margin-right: 80px;
-}
 .no-btn {
   background: transparent;
   border: none !important;

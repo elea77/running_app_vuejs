@@ -64,7 +64,7 @@
                         }
                         else {
                             localStorage.setItem('token',token);
-                            this.$router.push('/account');
+                            this.$router.push('/dashboard');
                             window.location.reload();
                         }
                     }

@@ -43,6 +43,14 @@
                 })
                 .catch(err => console.log(err))
             }
+
+            var navItems = document.getElementsByClassName("nav-item");
+            navItems.forEach(element => {
+                element.classList.remove("active");
+            });
+            var item = document.getElementById("account");
+            item.classList.add("active");
+
         }
     }
 </script>
