@@ -16,7 +16,7 @@
             <div class="col">
               <div class="dash__card">
                   <h2> Produits En vente </h2>
-                  <p>{{productsSales}}</p>
+                  <p>{{productsNotSales}}</p>
               </div>
             </div>
           
@@ -42,7 +42,7 @@
                <div class="col">
               <div class="dash__card">
                   <h2> Administrateurs</h2>  
-                  <p>{{usersNumber}}</p>
+                  <p>{{adminsNumber}}</p>
               </div>
             </div>
             <div class="col-2"></div>
@@ -65,8 +65,10 @@ export default {
   data: function() {
     return {
       usersNumber:"",
+      adminsNumber:"",
       productsNumber:"",
-      productsSales:""
+      productsSales:"",
+      productsNotSales:""
     };
   },
   mixins:[ApiUsers,ApiProducts],
@@ -74,6 +76,18 @@ export default {
     this.calculUsers()
       .then((data) => {
         this.usersNumber = data;
+      })
+      .catch((err) => console.log(err));
+
+    this.calculAdmins()
+      .then((data) => {
+        this.adminsNumber = data;
+      })
+      .catch((err) => console.log(err));
+
+    this.calculNotSales()
+      .then((data) => {
+        this.productsNotSales = data;
       })
       .catch((err) => console.log(err));
 

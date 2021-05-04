@@ -53,6 +53,15 @@ export default {
             })
             .then(res=>res.json())
         },
+        calculNotSales() {
+            const token = localStorage.getItem('token');
+            return fetch(`${apiConfigs.apiUrl}/calculNotSold`, {
+                headers: {
+                    Authorization: token
+                }
+            })
+            .then(res=>res.json())
+        },
         deleteProduct(id) {
             const token = localStorage.getItem('token');
             return fetch(`${apiConfigs.apiUrl}/products/${id}`, {

@@ -118,6 +118,15 @@ export default {
                 }
             })
             .then(res=>res.json())
+        },
+        calculAdmins() {
+            const token = localStorage.getItem('token');
+            return fetch(`${apiConfigs.apiUrl}/calculAdmins`, {
+                headers: {
+                    Authorization: token
+                }
+            })
+            .then(res=>res.json())
         }
     }
 } 
