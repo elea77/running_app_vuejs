@@ -36,7 +36,11 @@
               <td>{{ product.time }}</td>
               <td v-if="product.status == true">En vente</td>
               <td v-else-if="product.status == false">Vendu</td>
-              <td>{{ product.user }}</td>
+              <td>
+                <router-link :to="{name:'InfosUser',params:{id:product.user}}">
+                    Informations utilisateur
+                </router-link>
+              </td>
                   
               <td>
                 

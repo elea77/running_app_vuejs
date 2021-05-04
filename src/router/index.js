@@ -10,6 +10,7 @@ import History from '../views/History'
 import EditProduct from '../views/EditProduct'
 import Users from '../views/Users'
 import AddAdmin from '../views/AddAdmin'
+import InfosUser from '../views/InfosUser'
 Vue.use(VueRouter)
 
 const routes = [
@@ -158,7 +159,22 @@ const routes = [
         next();
       }
     }
-  }
+  },
+  {
+    path: '/infosUser/:id',
+    name: 'InfosUser',
+    component: InfosUser,
+    beforeEnter(to, from, next){
+      if (!localStorage.getItem('token')) {
+         next({
+          name:"Login"
+        })
+      }
+      else {
+        next();
+      }
+    }
+  },
 ]
 
 const router = new VueRouter({

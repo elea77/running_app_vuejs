@@ -18,7 +18,11 @@
                         <td><p>{{ product.priceH }} €</p></td>
                         <td>{{ product.dateH }}</td>
                         <td>{{ product.timeH }}</td>
-                        <td>{{ product.user }}</td>
+                        <td>
+                            <router-link :to="{name:'InfosUser',params:{id:product.user}}">
+                                Informations utilisateur
+                            </router-link>
+                        </td>
                     </tr>
                 </tbody>
             </table>

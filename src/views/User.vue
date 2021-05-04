@@ -9,6 +9,7 @@
                         <p>Nom : <b>{{user.firstName}}</b></p>
                         <p>Prénom : <b>{{user.lastName}}</b></p>
                         <p>Email : <b>{{user.email}}</b></p>
+                        <p>Numéro de téléphone : <b>{{user.phone}}</b></p>
                         <router-link to="/edit_profile" class="btn btn-primary">Modifier le profil</router-link> 
                     </div>
                 </div>
