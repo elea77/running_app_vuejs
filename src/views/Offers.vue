@@ -84,11 +84,13 @@ export default {
       .catch((err) => console.log(err));
 
       var navItems = document.getElementsByClassName("nav-item");
-      navItems.forEach(element => {
+      if(navItems[0]){
+        navItems.forEach(element => {
           element.classList.remove("active");
-      });
-      var item = document.getElementById("offers");
-      item.classList.add("active");
+        });
+        var item = document.getElementById("offers");
+        item.classList.add("active");
+      }
   },
   methods: {
     filterRowsBySelect: function (element,column,table){

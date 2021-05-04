@@ -71,11 +71,13 @@
 
 
         var navItems = document.getElementsByClassName("nav-item");
-        navItems.forEach(element => {
+        if(navItems[0]){
+          navItems.forEach(element => {
             element.classList.remove("active");
-        });
-        var item = document.getElementById("users");
-        item.classList.add("active");
+          });
+          var item = document.getElementById("users");
+          item.classList.add("active");
+        }
     },
   };
 </script>
