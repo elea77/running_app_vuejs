@@ -1,21 +1,23 @@
 <template>
-
     <div class="main-panel">
-        <TitlePage title="Dashboard"/>
-        <div class="user__card">
-            <h2> Utilisateurs</h2>  
-            {{usersNumber}} 
-        </div>
 
-        <div class="product__card">
-            <h2> Produits </h2>
-            {{productsNumber}}
-        </div>
+      <div class="container">
+          <TitlePage title="Dashboard"/>
+          <div class="user__card">
+              <h2> Utilisateurs</h2>  
+              {{usersNumber}} 
+          </div>
 
-        <div class="sales__card">
-            <h2> Produits Vendus </h2>
-            {{productsSales}}
-        </div>
+          <div class="product__card">
+              <h2> Produits </h2>
+              {{productsNumber}}
+          </div>
+
+          <div class="sales__card">
+              <h2> Produits Vendus </h2>
+              {{productsSales}}
+          </div>
+      </div>
 
     </div>
 

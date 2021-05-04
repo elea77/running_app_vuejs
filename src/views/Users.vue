@@ -1,20 +1,21 @@
 <template>
   <div class="main-panel">
-    <TitlePage title="Liste utilisateurs" />
-    <router-link to="/AddAdmin">
-      <button class="btn btn-primary mb-2">Ajouter un Administrateur</button>
-    </router-link>
-    <table class="table">
-        <thead class="thead-dark">
-            <tr>
-            <th scope="col">Prénom</th>
-            <th scope="col">Nom</th>
-            <th scope="col">Email</th>
-            <th scope="col">Téléphone</th>
-            <th scope="col">Admin</th>
-            <th scope="col">Actions</th>
-            </tr>
-        </thead>
+    <div class="container">
+      <TitlePage title="Liste utilisateurs" />
+      <router-link to="/AddAdmin">
+        <button class="btn btn-primary mb-2">Ajouter un Administrateur</button>
+      </router-link>
+      <table class="table">
+          <thead class="thead-dark">
+              <tr>
+              <th scope="col">Prénom</th>
+              <th scope="col">Nom</th>
+              <th scope="col">Email</th>
+              <th scope="col">Téléphone</th>
+              <th scope="col">Admin</th>
+              <th scope="col">Actions</th>
+              </tr>
+          </thead>
             <tbody>
                 <tr v-for="user in usersFromApi" v-bind:key="user._id">
                     <td>{{ user.firstName }}</td>
@@ -35,6 +36,7 @@
                 </tr>
             </tbody>
         </table>
+    </div>
   </div>
 </template>
 
