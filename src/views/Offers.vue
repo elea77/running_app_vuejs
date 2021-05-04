@@ -41,13 +41,9 @@
               <td>
                 
                 <router-link :to="{name:'EditProduct',params:{id:product._id}}">
-                  <button class="btn btn-primary mb-2">
-                  Modifier
-                  </button>
+                  <span class="iconify" data-inline="false" data-icon="ant-design:edit-outlined"></span>
                 </router-link>
-                <button @click="del(product._id)" class="btn btn-primary mb-2">
-                  Supprimer
-                </button>
+                <span @click="del(product._id)" class="iconify" data-inline="false" data-icon="ant-design:delete-outlined"></span>
               </td> 
             </tr>
           </tbody>
@@ -123,6 +119,12 @@ export default {
 
 #filterStatus {
   width: 20%;
+}
+
+.iconify{
+  color: black;
+  font-size: 25px;
+  cursor: pointer;
 }
 
 

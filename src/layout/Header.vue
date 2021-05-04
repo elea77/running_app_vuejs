@@ -1,7 +1,5 @@
 <template>
     <div class="wrapper" v-if="user.firstName">
-        <link rel="stylesheet" href="https://cdn.rawgit.com/creativetimofficial/material-dashboard/31144b3f/assets/css/material-dashboard.css">
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/latest/css/font-awesome.min.css">
         <div class="sidebar" data-color="purple" data-background-color="white">
             <div class="logo">
                 <img src="../assets/logo.png" alt="logo">
