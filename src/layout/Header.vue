@@ -36,7 +36,7 @@
                 </ul>
                 <ul class="nav" id="bottom">
                     <li>
-                        <button @click="logout">Se déconnecter</button>
+                        <button class="btn btn-primary mb-2 " @click="logout">Se déconnecter</button>
                     </li>
                 </ul>
             </div>

@@ -1,6 +1,7 @@
 <template>
 
-    <div class="main-panel">
+    <div class="container">
+        <TitlePage title="Dashboard"/>
         <div class="user__card">
             <h2> Utilisateurs</h2>  
             {{usersNumber}} 
@@ -21,10 +22,13 @@
 </template>
 
 <script>
+import TitlePage from '../components/TitlePage'; 
 import ApiUsers from '../mixins/ApiUsers';
 import ApiProducts from '../mixins/ApiProducts';
 export default {
-
+  components: {
+    TitlePage
+  },
   data: function() {
     return {
       usersNumber:"",
@@ -58,6 +62,42 @@ export default {
 
 </script>
 
-<style>
+<style lang="scss" scoped>
+
+.container{
+  margin-top: 30px;
+  margin-right: 50px;
+}
+
+.user__card{
+  height: 110px;
+  width: 250px;
+  border-radius: 8px;
+  background-color: #9c27b0;
+  color: #ffffff;
+  margin-top: 20px;
+  margin-left: 420px;
+
+}
+
+.product__card{
+  height: 110px;
+  width: 250px;
+  border-radius: 8px;
+  background-color: #9c27b0;
+  color: #ffffff;
+  margin-top: 20px;
+  margin-left: 420px;
+}
+
+.sales__card{
+  height: auto;
+  width: 250px;
+  border-radius: 8px;
+  background-color: #9c27b0;
+  color: #ffffff;
+  margin-top: 20px;
+  margin-left: 420px;
+}
 
 </style>

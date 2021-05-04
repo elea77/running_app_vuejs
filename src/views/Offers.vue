@@ -29,9 +29,13 @@
             <td>{{ product.user }}</td>
                 
             <td>
+              
               <router-link :to="{name:'EditProduct',params:{id:product._id}}">
+                <button class="btn btn-primary mb-2">
                 Modifier
+                </button>
               </router-link>
+              
             </td> 
           </tr>
         </tbody>
@@ -76,6 +80,9 @@ export default {
     background: transparent;
     border: none !important;
     font-size:0;
+    
   }
+
+
 
 </style>

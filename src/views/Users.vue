@@ -24,10 +24,12 @@
                     <td>{{ user.isAdmin }}</td>
                     <td>
                       <button @click="del(user._id)" class="no-btn">
-                        <span class="iconify" data-inline="false" data-icon="fluent:delete-dismiss-28-filled" style="font-size: 28px; color: #CA1C46; "></span>
+                        Supprimer
                       </button>
                       <router-link :to="{name:'EditUser',params:{id:user._id}}">
+                        <button class="btn btn-primary mb-2">
                         Modifier
+                        </button>
                       </router-link>
                     </td>                   
                 </tr>
