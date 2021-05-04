@@ -47,9 +47,7 @@
                   <span style="color: red;" class="iconify" data-inline="false" data-icon="ant-design:delete-outlined"></span>
                 </button>
                 <router-link :to="{name:'History',params:{id:product._id}}">
-                  <button class="btn btn-primary mb-2">
-                  Voir l'historique
-                  </button>
+                  <span class="iconify" data-icon="ant-design:history-outlined" data-inline="false"></span>
                 </router-link>
                 
               </td> 
