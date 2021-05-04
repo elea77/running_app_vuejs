@@ -8,25 +8,45 @@
 
             <div class="col">
               <div class="dash__card">
-                  <h2> Utilisateurs</h2>  
-                  <p>{{usersNumber}}</p>
-              </div>
-            </div>
-            
-            <div class="col">
-              <div class="dash__card">
-                  <h2> Produits En vente</h2>
+                  <h2> Produits</h2>
                   <p>{{productsNumber}}</p>
               </div>
             </div>
             
             <div class="col">
               <div class="dash__card">
-                  <h2> Produits Vendus </h2>
+                  <h2> Produits En vente </h2>
                   <p>{{productsSales}}</p>
               </div>
             </div>
           
+            <div class="col">
+              <div class="dash__card">
+                  <h2> Produits Vendus </h2>
+                  <p>{{productsSales}}</p>
+              </div>
+            </div>
+
+          </div>
+          <div class="row">
+
+            <div class="col-2"></div>
+            
+            <div class="col">
+              <div class="dash__card">
+                  <h2> Utilisateurs</h2>  
+                  <p>{{usersNumber}}</p>
+              </div>
+            </div>
+
+               <div class="col">
+              <div class="dash__card">
+                  <h2> Administrateurs</h2>  
+                  <p>{{usersNumber}}</p>
+              </div>
+            </div>
+
+            <div class="col-2"></div>
             
           </div>
       </div>
