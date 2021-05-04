@@ -50,6 +50,7 @@
                   Voir l'historique
                   </button>
                 </router-link>
+                
               </td> 
             </tr>
           </tbody>

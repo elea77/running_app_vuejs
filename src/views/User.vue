@@ -47,12 +47,13 @@
             }
 
             var navItems = document.getElementsByClassName("nav-item");
-            navItems.forEach(element => {
-                element.classList.remove("active");
-            });
-            var item = document.getElementById("account");
-            item.classList.add("active");
-
+            if(navItems[0]){
+                navItems.forEach(element => {
+                    element.classList.remove("active");
+                });
+                var item = document.getElementById("account");
+                item.classList.add("active");
+            }
         }
     }
 </script>
