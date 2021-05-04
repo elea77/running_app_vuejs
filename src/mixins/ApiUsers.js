@@ -42,9 +42,11 @@ export default {
                 .then (res => res.json())
         },
         deleteUser(id) {
+            const token = localStorage.getItem('token');
             return fetch(`${apiConfigs.apiUrl}/users/${id}`, {
                 method: "DELETE",
                 headers: {
+                    Authorization: token,
                     "Content-Type":"Application/json"
                 }
             })

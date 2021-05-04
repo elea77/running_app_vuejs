@@ -23,14 +23,14 @@
                     <td>{{ user.phone }}</td>
                     <td>{{ user.isAdmin }}</td>
                     <td>
-                      <button @click="del(user._id)" class="no-btn">
-                        Supprimer
-                      </button>
                       <router-link :to="{name:'EditUser',params:{id:user._id}}">
                         <button class="btn btn-primary mb-2">
                         Modifier
                         </button>
                       </router-link>
+                       <button @click="del(user._id)" class="btn btn-primary mb-2">
+                        Supprimer
+                      </button>
                     </td>                   
                 </tr>
             </tbody>
