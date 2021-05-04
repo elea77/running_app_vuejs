@@ -81,8 +81,14 @@
         margin-top: 150%;
     }
 
-    .nav button {
-        cursor: pointer;
+    .nav {
+        button {
+                cursor: pointer;
+        }
+        a {
+            padding: 1em 5em!important;
+        }
     }
+    
     
 </style>

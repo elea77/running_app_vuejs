@@ -25,9 +25,9 @@
                     <td>{{ user.isAdmin }}</td>
                     <td>
                       <router-link :to="{name:'EditOtherUser',params:{id:user._id}}">
-                        <span class="iconify" data-inline="false" data-icon="ant-design:edit-outlined"></span>
+                        <span class="iconify" style="color: rgb(0, 133, 255);" data-inline="false" data-icon="ant-design:edit-outlined"></span>
                       </router-link>
-                      <span @click="del(user._id)" class="iconify" data-inline="false" data-icon="ant-design:delete-outlined"></span>
+                      <span @click="del(user._id)" style="color: red;" class="iconify" data-inline="false" data-icon="ant-design:delete-outlined"></span>
                     </td>                   
                 </tr>
             </tbody>

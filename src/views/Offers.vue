@@ -41,9 +41,9 @@
               <td>
                 
                 <router-link :to="{name:'EditProduct',params:{id:product._id}}">
-                  <span class="iconify" data-inline="false" data-icon="ant-design:edit-outlined"></span>
+                  <span class="iconify" style="color: rgb(0, 133, 255);" data-inline="false" data-icon="ant-design:edit-outlined"></span>
                 </router-link>
-                <span @click="del(product._id)" class="iconify" data-inline="false" data-icon="ant-design:delete-outlined"></span>
+                <span @click="del(product._id)" style="color: red;" class="iconify" data-inline="false" data-icon="ant-design:delete-outlined"></span>
 
                 <router-link :to="{name:'History',params:{id:product._id}}">
                   <button class="btn btn-primary mb-2">
